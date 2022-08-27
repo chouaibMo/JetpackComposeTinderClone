@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.TinderClone.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#FFFFF5</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_tinder_launcher_foreground</item>
+        <item name="windowSplashScreenAnimationDuration">3</item>
+        <item name="postSplashScreenTheme">@style/Theme.TinderClone</item>
+    </style>
+</resources>

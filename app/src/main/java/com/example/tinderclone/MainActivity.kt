@@ -18,15 +18,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.tinderclone.composable.CardStack
-import com.example.tinderclone.ui.theme.Pink
 import com.example.tinderclone.ui.theme.TinderCloneTheme
 
 @OptIn(ExperimentalMaterialApi::class)
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
             TinderCloneTheme {

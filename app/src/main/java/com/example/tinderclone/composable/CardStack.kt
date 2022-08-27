@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.AsyncImage
 import com.example.tinderclone.User
+import com.example.tinderclone.ui.theme.CreamWhite
 import com.example.tinderclone.ui.theme.Green
 import com.example.tinderclone.ui.theme.Pink
 import kotlin.math.roundToInt
@@ -70,7 +71,7 @@ fun CardStack(modifier : Modifier = Modifier,
             ){
                 FloatingActionButton(
                     onClick = { if (i >= 0) cardStackController.swipeLeft() },
-                    backgroundColor = Color.White,
+                    backgroundColor = CreamWhite,
                     elevation = FloatingActionButtonDefaults.elevation(5.dp)
                 ) {
                     Icon(Icons.Rounded.Close, contentDescription = "", tint = Pink, modifier = Modifier.size(30.dp))
@@ -78,7 +79,7 @@ fun CardStack(modifier : Modifier = Modifier,
                 Spacer( modifier = Modifier.width(70.dp))
                 FloatingActionButton(
                     onClick = { if (i >= 0) cardStackController.swipeRight() },
-                    backgroundColor = Color.White,
+                    backgroundColor = CreamWhite,
                     elevation = FloatingActionButtonDefaults.elevation(5.dp)
                 ) {
                     Icon(Icons.Rounded.Favorite,contentDescription = "", tint = Green, modifier = Modifier.size(30.dp))
