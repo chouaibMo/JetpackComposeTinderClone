@@ -3,21 +3,41 @@ package com.example.tinderclone
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material.icons.rounded.Person
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import com.example.tinderclone.composable.CardStack
+import com.example.tinderclone.ui.theme.Pink
 import com.example.tinderclone.ui.theme.TinderCloneTheme
 
+@OptIn(ExperimentalMaterialApi::class)
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContent {
             TinderCloneTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                Scaffold(
+                    topBar = { TopBar() }
+                ) {
+                    CardStack(
+                        modifier = Modifier,
+                        enableButtons = true,
+                        users = users,
+                    )
                 }
             }
         }
@@ -25,14 +45,31 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+fun TopBar() {
+    Row(
+        modifier = Modifier.fillMaxWidth().height(40.dp).padding(top = 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        IconButton(onClick = { }) {
+            Icon(
+                imageVector = Icons.Rounded.Person,
+                contentDescription = "profile",
+                tint = Color.LightGray,
+            )
+        }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    TinderCloneTheme {
-        Greeting("Android")
+        Image(
+            modifier = Modifier.size(70.dp),
+            painter = painterResource(id = R.drawable.tinder_logo),
+            contentDescription = "logo")
+
+        IconButton(onClick = { }) {
+            Icon(
+                imageVector = Icons.Outlined.Menu,
+                contentDescription = "chat",
+                tint = Color.LightGray,
+            )
+        }
     }
 }
